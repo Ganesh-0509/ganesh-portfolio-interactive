@@ -24,15 +24,8 @@ export const profile = {
   phone: '+91 78250 83996',
   // Résumé PDF, hosted locally in /public (replaces the old Google Drive link).
   resumeUrl: asset('Ganesh_Kumar_Resume.pdf'),
-  // Headshot at /public/profile.jpg (stepwell portrait). The polaroid crop is
-  // biased downward via CSS (.polaroid-img img object-position) to frame the face.
+  // Headshot at /public/profile.jpg (stepwell portrait), framed via CSS object-position.
   photo: asset('profile.jpg'),
-  // Little sticker pills that float around the hero photo.
-  stickers: [
-    { text: 'Intel Hackathon 🏆', tone: 'coral', x: '-10%', y: '12%', rot: -8 },
-    { text: 'Gen AI + CV 🤖', tone: 'sage', x: '78%', y: '28%', rot: 7 },
-    { text: 'builds @ 2am 🌙', tone: 'dark', x: '58%', y: '92%', rot: -5 },
-  ],
 }
 
 export const about = {
@@ -74,12 +67,6 @@ export const skills = [
   { name: 'JavaScript / TypeScript', level: 85 },
   { name: 'HTML5 & CSS3', level: 92 },
   { name: 'SQL', level: 78 },
-]
-
-// Tech marquee (scrolls across a dark bar, reference-style).
-export const techMarquee = [
-  'Python', 'FastAPI', 'OpenCV', 'React', 'Next.js', 'TypeScript',
-  'Gemini', 'GPT-4o', 'PostgreSQL', 'Vertex AI', 'Flask', 'LangGraph', 'Git',
 ]
 
 export const projects = [
