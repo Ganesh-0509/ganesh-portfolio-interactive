@@ -7,7 +7,7 @@ export default function Skills() {
       <div className="container">
         <div className="chapter">
           <span className="kicker">What I do</span>
-          <span className="kicker"><span className="idx">02</span> / 06</span>
+          <span className="kicker"><span className="idx">03</span> / 06</span>
         </div>
 
         <Reveal>

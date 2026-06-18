@@ -26,7 +26,7 @@ export default function Hero({ loaded }) {
           <div className="hero-lede">
             <motion.h1 className="display hero-title" {...rise(0.25)}>
               I don’t just study&nbsp;AI<span className="hero-period">.</span>
-              <br />I <em>build</em> with it.
+              <br />I <em>build</em> with&nbsp;it.
             </motion.h1>
 
             <motion.p className="hero-tagline" {...rise(0.4)}>

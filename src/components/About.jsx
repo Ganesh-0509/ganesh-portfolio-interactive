@@ -23,7 +23,7 @@ export default function About() {
       <div className="container">
         <div className="chapter">
           <span className="kicker">About</span>
-          <span className="kicker"><span className="idx">01</span> / 06</span>
+          <span className="kicker"><span className="idx">02</span> / 06</span>
         </div>
 
         <div className="about-grid">

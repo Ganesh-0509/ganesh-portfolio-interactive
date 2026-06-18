@@ -30,7 +30,7 @@ export default function Contact() {
       <div className="container">
         <div className="chapter">
           <span className="kicker">Contact</span>
-          <span className="kicker"><span className="idx">05</span> / 06</span>
+          <span className="kicker"><span className="idx">06</span> / 06</span>
         </div>
 
         <div className="contact-grid">

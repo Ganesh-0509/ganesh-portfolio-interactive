@@ -10,7 +10,7 @@ export default function Wins() {
       <div className="container">
         <div className="chapter">
           <span className="kicker">Highlights</span>
-          <span className="kicker"><span className="idx">04</span> / 06</span>
+          <span className="kicker"><span className="idx">05</span> / 06</span>
         </div>
 
         <Reveal><h2 className="section-title">Proof of <em>work</em>.</h2></Reveal>
