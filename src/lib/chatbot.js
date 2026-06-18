@@ -10,10 +10,10 @@ const has = (t, ...words) => words.some((w) => t.includes(w))
 // Keyword aliases so "moon", "lunar", "credit", etc. resolve to the right project.
 const ALIASES = {
   'CampusSync Edge': ['campussync', 'campus', 'career', 'resume platform', 'matching'],
-  'Sahaay AI': ['sahaay', 'mental', 'health', 'crisis', 'wellbeing'],
+  'Namma Connect': ['namma', 'connect', 'ngo', 'volunteer', 'community', 'field', 'allocation', 'escalation'],
   JanaNaadi: ['jananaadi', 'jana', 'sentiment', 'civic', 'ward', 'public', 'knowledge graph'],
   'ISRO HAVK': ['isro', 'havk', 'lunar', 'moon', 'terrain', 'space', 'rover', 'satellite'],
-  Credifi: ['credifi', 'credit', 'underwriting', 'finance', 'loan', 'forensic'],
+  'Bias-Lab': ['bias', 'bias-lab', 'fairness', 'shap', 'fairlearn', 'audit', 'ethics', 'explainability'],
 }
 
 const linkFor = (name) => socials.find((s) => s.name === name)?.url

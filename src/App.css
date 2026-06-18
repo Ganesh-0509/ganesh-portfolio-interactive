@@ -27,8 +27,8 @@
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; }
 .nav-logo { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; }
-.nav-links { display: flex; gap: 1.9rem; align-items: baseline; }
-.nav-link { font-size: 0.85rem; color: var(--ink-2); display: inline-flex; align-items: baseline; gap: 0.4rem; transition: color .3s var(--ease); }
+.nav-links { display: flex; gap: 1.9rem; align-items: center; }
+.nav-link { font-size: 0.85rem; line-height: 1; color: var(--ink-2); display: inline-flex; align-items: baseline; gap: 0.4rem; transition: color .3s var(--ease); }
 .nav-idx { font-size: 0.6rem; color: var(--ink-3); }
 .nav-link:hover, .nav-link--active { color: var(--ink); }
 .nav-link--active .nav-idx { color: var(--terra); }
@@ -47,13 +47,18 @@
 .hero .rule { margin-top: 0.9rem; }
 .hero-grid {
   display: grid; grid-template-columns: 1.5fr 0.8fr; gap: clamp(2rem, 5vw, 5rem);
-  align-items: end; margin-top: clamp(2rem, 6vh, 4rem);
+  align-items: stretch; margin-top: clamp(2rem, 6vh, 4rem);
 }
+.hero-lede { display: flex; flex-direction: column; }
 .hero-title { margin-bottom: clamp(1.6rem, 3vh, 2.4rem); }
+/* a hair of air so the period doesn't hug the "AI" */
+.hero-period { margin-left: 0.04em; }
 .hero-tagline { font-size: 1.12rem; color: var(--ink-2); max-width: 46ch; line-height: 1.6; }
-.hero-roles { font-size: 0.74rem; letter-spacing: 0.1em; color: var(--ink-3); margin-top: 1.6rem; }
-.hero-actions { display: flex; gap: 2.2rem; margin-top: 2rem; }
-.hero-figure { margin: 0; }
+/* softened from monospace → sans so it stops competing with the paragraph above */
+.hero-roles { font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.03em; color: var(--ink-3); margin-top: 1.6rem; }
+/* margin-top:auto pushes the CTAs to the bottom of the column so they anchor to the portrait baseline */
+.hero-actions { display: flex; gap: 2.2rem; margin-top: auto; padding-top: clamp(2rem, 4vh, 3rem); }
+.hero-figure { margin: 0; align-self: end; }
 .hero-portrait { aspect-ratio: 3 / 4; overflow: hidden; background: var(--paper-2); }
 .hero-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 72%; filter: grayscale(0.12) contrast(1.02); }
 .hero-portrait-ph { width: 100%; height: 100%; background: var(--paper-2); }
@@ -83,20 +88,17 @@
 .disc-idx { font-size: 0.7rem; color: var(--terra); }
 .disc-title { font-size: clamp(1.4rem, 2.4vw, 1.95rem); margin-top: 0.6rem; font-weight: 380; }
 .disc-blurb { margin-top: 0.7rem; font-size: 0.98rem; }
-.skills-list { margin-top: clamp(3rem, 7vh, 5rem); display: flex; flex-direction: column; }
-.skill-row {
-  display: grid; grid-template-columns: minmax(160px, 280px) 1fr auto; gap: 1.5rem;
-  align-items: center; padding-block: 1.15rem; border-top: 1px solid var(--rule);
+/* Typographic tech stack — replaces the old percentage bars. Clean sans keywords. */
+.disc-stack {
+  list-style: none; display: flex; flex-wrap: wrap; row-gap: 0.4rem;
+  margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid var(--rule-soft);
 }
-.skill-row:last-child { border-bottom: 1px solid var(--rule); }
-.skill-name { font-family: var(--serif); font-size: 1.1rem; font-weight: 380; }
-.skill-track { height: 2px; background: var(--rule); position: relative; }
-.skill-fill { position: absolute; inset: 0; background: var(--terra); transform-origin: left; }
-.skill-pct { font-size: 0.78rem; color: var(--ink-3); min-width: 28px; text-align: right; }
+.disc-stack li { font-size: 0.82rem; color: var(--ink-2); letter-spacing: 0.01em; }
+.disc-stack li:not(:last-child)::after { content: '·'; color: var(--ink-3); margin: 0 0.65rem; }
 
 /* ── Work / features ──────────────────────────────────────────────────────── */
 .work-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-bottom: clamp(2rem, 5vh, 3.5rem); }
-.work-filters { display: flex; gap: 1.4rem; }
+.work-filters { display: flex; gap: 1.9rem; }
 .filter {
   background: none; border: none; cursor: pointer; font-size: 0.72rem; letter-spacing: 0.12em;
   text-transform: uppercase; color: var(--ink-3); padding-bottom: 4px; border-bottom: 1px solid transparent;
@@ -144,6 +146,7 @@
 .contact-details { margin-top: clamp(2rem, 4vh, 3rem); display: flex; flex-direction: column; }
 .contact-line { display: flex; flex-direction: column; gap: 0.35rem; padding-block: 1rem; border-top: 1px solid var(--rule); }
 .contact-line:first-child { border-top: 1px solid var(--ink); }
+.contact-line:last-child { border-bottom: 1px solid var(--rule); }
 .contact-val { font-size: 1.05rem; }
 .contact-sep { color: var(--ink-3); }
 .contact-form { display: flex; flex-direction: column; gap: 1.7rem; }
@@ -171,10 +174,11 @@
 /* ── Chat assistant (editorial restyle) ───────────────────────────────────── */
 .chat-fab {
   position: fixed; right: clamp(1rem, 3vw, 2rem); bottom: clamp(1rem, 3vw, 2rem); z-index: 900;
-  width: 54px; height: 54px; border-radius: 50%; border: 1px solid var(--ink);
-  background: var(--ink); color: var(--paper); display: grid; place-items: center; cursor: pointer;
+  width: 54px; height: 54px; border-radius: 50%; border: none;
+  background: var(--terra); color: var(--paper); display: grid; place-items: center; cursor: pointer;
+  box-shadow: 0 10px 26px rgba(177, 74, 49, 0.32);
 }
-.chat-fab-ping { position: absolute; top: 9px; right: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--terra); }
+.chat-fab-ping { position: absolute; top: 9px; right: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); }
 .chat-panel {
   position: fixed; right: clamp(1rem, 3vw, 2rem); bottom: 5.4rem; z-index: 901;
   width: min(390px, calc(100vw - 2rem)); height: min(560px, calc(100vh - 9rem));
@@ -203,8 +207,9 @@
 .chat-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.4rem; }
 .chat-chip { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; padding: 0.4rem 0.7rem; background: none; border: 1px solid var(--rule); color: var(--ink-2); cursor: pointer; transition: border-color .25s, color .25s; }
 .chat-chip:hover { border-color: var(--terra); color: var(--terra); }
-.chat-input { display: flex; gap: 0.6rem; padding: 0.8rem; border-top: 1px solid var(--rule); align-items: center; }
-.chat-input input { flex: 1; background: none; border: none; border-bottom: 1px solid var(--rule); padding: 0.5rem 0; font-family: var(--sans); font-size: 0.92rem; color: var(--ink); }
+.chat-input { display: flex; gap: 1rem; padding: 0.8rem; border-top: 1px solid var(--rule); align-items: center; }
+/* padding-right keeps the terracotta underline clear of the send button */
+.chat-input input { flex: 1; min-width: 0; background: none; border: none; border-bottom: 1px solid var(--rule); padding: 0.5rem 0.3rem 0.5rem 0; font-family: var(--sans); font-size: 0.92rem; color: var(--ink); }
 .chat-input input:focus { outline: none; border-bottom-color: var(--terra); }
 .chat-send { width: 38px; height: 38px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); display: grid; place-items: center; cursor: pointer; transition: opacity .2s; }
 .chat-send:disabled { opacity: 0.35; cursor: default; }
@@ -233,5 +238,4 @@
   .nav-links--open { transform: translateX(0); }
   .nav-link { font-size: 1.6rem; font-family: var(--serif); }
   .nav-idx { display: none; }
-  .skill-row { grid-template-columns: 120px 1fr auto; gap: 1rem; }
 }

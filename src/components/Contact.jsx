@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { profile, socials, contactFormEndpoint } from '../data/content'
+import { profile, contactFormEndpoint } from '../data/content'
 import Reveal from './Reveal'
 
 export default function Contact() {
@@ -24,8 +24,6 @@ export default function Contact() {
       if (res.ok) { setStatus('sent'); form.reset() } else setStatus('error')
     } catch { setStatus('error') }
   }
-
-  const links = socials.filter((s) => s.url)
 
   return (
     <section id="contact" className="section contact">
@@ -56,17 +54,6 @@ export default function Contact() {
               </a>
               <div className="contact-line">
                 <span className="kicker">Based in</span><span className="contact-val">{profile.location}</span>
-              </div>
-              <div className="contact-line contact-socials">
-                <span className="kicker">Elsewhere</span>
-                <span className="contact-val">
-                  {links.map((s, i) => (
-                    <span key={s.name}>
-                      <a className="tlink" href={s.url} target={s.url.startsWith('http') ? '_blank' : undefined} rel="noreferrer">{s.name}</a>
-                      {i < links.length - 1 ? <span className="contact-sep"> · </span> : null}
-                    </span>
-                  ))}
-                </span>
               </div>
             </Reveal>
           </div>

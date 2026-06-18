@@ -25,7 +25,7 @@ export default function Hero({ loaded }) {
         <div className="hero-grid">
           <div className="hero-lede">
             <motion.h1 className="display hero-title" {...rise(0.25)}>
-              I don’t just study&nbsp;AI.
+              I don’t just study&nbsp;AI<span className="hero-period">.</span>
               <br />I <em>build</em> with it.
             </motion.h1>
 
@@ -33,7 +33,7 @@ export default function Hero({ loaded }) {
               {profile.tagline}
             </motion.p>
 
-            <motion.div className="hero-roles mono" {...rise(0.5)}>
+            <motion.div className="hero-roles" {...rise(0.5)}>
               {profile.roles.join('  /  ')}
             </motion.div>
 

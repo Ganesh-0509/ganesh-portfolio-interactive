@@ -38,7 +38,9 @@ function Project({ p, n }) {
 
 export default function Work() {
   const [filter, setFilter] = useState('All')
-  const shown = filter === 'All' ? projects : projects.filter((p) => p.tags.includes(filter))
+  // Projects with a live demo come first (stable sort keeps source order within each group).
+  const ordered = [...projects].sort((a, b) => (b.demo ? 1 : 0) - (a.demo ? 1 : 0))
+  const shown = filter === 'All' ? ordered : ordered.filter((p) => p.tags.includes(filter))
 
   return (
     <section id="work" className="section work">

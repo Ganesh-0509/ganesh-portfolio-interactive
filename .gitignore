@@ -7,3 +7,14 @@ dist-ssr
 .env.*
 !.env.example
 .vite
+
+# local tooling / editor state — not part of the site
+.agents/
+.claude/
+.playwright-cli/
+skills-lock.json
+
+# source files & internal notes (not for the public repo)
+Profile (1).pdf
+Ganesh_kumar_T_Resume.pdf
+portfolio-content-report.md

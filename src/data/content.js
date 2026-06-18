@@ -47,22 +47,23 @@ export const about = {
   ],
 }
 
-// "The Triple Threat" — three things you do, reference-style.
+// "The Triple Threat" — three things you do. Each carries the real stack it
+// runs on (shown as a typographic keyword list, not skill bars).
 export const tripleThreat = [
   {
-    emoji: '🤖',
     title: 'Gen AI & LLMs',
-    blurb: 'Orchestrating Gemini, GPT-4o & Vertex AI into agents and assistants that actually ship.',
+    blurb: 'Orchestrating Gemini, GPT-4o & Claude into agents and assistants that actually ship.',
+    stack: ['Gemini', 'GPT-4o', 'Claude', 'LangGraph', 'RAG + PGVector', 'Prompt orchestration'],
   },
   {
-    emoji: '👁️',
     title: 'Computer Vision',
-    blurb: 'OpenCV pipelines — from shape-from-shading 3D terrain to prescription OCR.',
+    blurb: 'OpenCV pipelines — from shape-from-shading 3D terrain to bilingual prescription OCR.',
+    stack: ['OpenCV', 'Tesseract OCR', 'NumPy / SciPy', 'SHAP', 'Shape-from-shading'],
   },
   {
-    emoji: '🧩',
     title: 'Full-Stack Systems',
     blurb: 'End-to-end builds: FastAPI / Flask backends wired to React & Next.js front-ends.',
+    stack: ['React / Next.js', 'FastAPI / Flask', 'PostgreSQL · Supabase', 'TypeScript', 'Python', 'Docker'],
   },
 ]
 
@@ -89,21 +90,21 @@ export const projects = [
     tags: ['AI/ML', 'Full Stack'],
     tech: ['FastAPI', 'React', 'PGVector', 'Gemini', 'ONNX'],
     tone: 'coral',
-    image: '', // TODO: drop a screenshot in /public and set image: asset('campussync.png')
+    image: asset('campusSync.png'),
     repo: 'https://github.com/Ganesh-0509/CampusSync-Edge',
     demo: '',
     featured: true,
   },
   {
-    title: 'Sahaay AI',
+    title: 'Namma Connect',
     blurb:
-      'Mental-health companion with explainable AI recommendations and real-time crisis detection.',
-    tags: ['AI/ML', 'Web'],
-    tech: ['React', 'Express', 'OpenAI', 'Firebase'],
+      'Multi-tenant NGO coordination platform: OCR-classifies field reports (Tamil & English), auto-matches volunteers by skills, proximity and reliability, and escalates SLA breaches — with GPS-verified check-ins.',
+    tags: ['AI/ML', 'Full Stack'],
+    tech: ['React', 'FastAPI', 'Gemini', 'Supabase', 'OpenCV'],
     tone: 'sage',
-    image: '', // TODO: screenshot → asset('sahaay.png')
-    repo: 'https://github.com/Ganesh-0509/sahaay-ui-redesign',
-    demo: 'https://sahaay-ai-y9v3.onrender.com',
+    image: asset('namma_connect.png'),
+    repo: 'https://github.com/Ganesh-0509/smart-resource-allocation',
+    demo: 'https://ngo-app-812651531349.asia-south1.run.app',
     featured: true,
   },
   {
@@ -113,7 +114,7 @@ export const projects = [
     tags: ['AI/ML', 'Full Stack'],
     tech: ['FastAPI', 'React', 'D3.js', 'Gemini'],
     tone: 'sky',
-    image: '', // TODO: screenshot → asset('jananaadi.png')
+    image: asset('jananaadi.png'),
     repo: 'https://github.com/Ganesh-0509/JanaNaadi',
     demo: 'https://jana-naadi.vercel.app/',
     featured: true,
@@ -131,16 +132,16 @@ export const projects = [
     featured: false,
   },
   {
-    title: 'Credifi',
+    title: 'Bias-Lab',
     blurb:
-      'End-to-end credit-scoring platform: RandomForest pipelines over 15+ financial indicators, a rate-limited FastAPI serving layer, and a React score dashboard.',
-    tags: ['AI/ML', 'Web'],
-    tech: ['FastAPI', 'scikit-learn', 'RandomForest', 'React'],
+      'Enterprise AI-fairness platform: upload a dataset and get an 8-stage bias audit — proxy detection, SHAP explainability, counterfactual tests, and Gemini-written mitigation reports. A production-grade UI over what AIF360/Fairlearn leave to code.',
+    tags: ['AI/ML', 'Full Stack'],
+    tech: ['React', 'FastAPI', 'SHAP', 'Fairlearn', 'Gemini'],
     tone: 'coral',
-    image: '', // TODO: screenshot → asset('credifi.png')
-    repo: 'https://github.com/Ganesh-0509/Credifi',
-    demo: '',
-    featured: false,
+    image: asset('bias-lab.png'),
+    repo: 'https://github.com/Ganesh-0509/Bias-Lab',
+    demo: 'https://bias-lab-35890642291.us-central1.run.app',
+    featured: true,
   },
   {
     title: 'FinMate',

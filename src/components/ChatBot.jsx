@@ -3,17 +3,19 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { getAnswer, greeting } from '../lib/chatbot'
 
 // A floating, fully-static assistant. Answers from portfolio data — no LLM.
-function ChatIcon() {
-  return (
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 0 1-.9-3.8A8.38 8.38 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z" />
-    </svg>
-  )
-}
 function CloseIcon() {
   return (
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
       <path d="M18 6 6 18M6 6l12 12" />
+    </svg>
+  )
+}
+// Custom four-point "spark" mark — reads as AI, fits the terracotta palette.
+function SparkIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+      <path d="M12 1.5c.45 4.2 1.8 6.6 5 8.5-3.2 1.9-4.55 4.3-5 8.5-.45-4.2-1.8-6.6-5-8.5 3.2-1.9 4.55-4.3 5-8.5z" />
+      <circle cx="19" cy="4.5" r="1.4" />
     </svg>
   )
 }
@@ -90,7 +92,7 @@ export default function ChatBot() {
         animate={{ scale: 1, rotate: 0 }}
         transition={{ delay: 1.4, type: 'spring', stiffness: 260, damping: 18 }}
       >
-        {open ? <CloseIcon /> : <ChatIcon />}
+        {open ? <CloseIcon /> : <SparkIcon />}
         {!open && <span className="chat-fab-ping" aria-hidden="true" />}
       </motion.button>
 

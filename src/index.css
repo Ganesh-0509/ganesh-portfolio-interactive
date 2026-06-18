@@ -60,7 +60,7 @@ h1, h2, h3, h4 {
 em { font-style: italic; }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
-button { font-family: inherit; color: inherit; }
+button { font-family: inherit; color: inherit; background: none; border: none; }
 ::selection { background: var(--ink); color: var(--paper); }
 
 /* Mono metadata label — the editorial "kicker" */
@@ -115,11 +115,13 @@ button { font-family: inherit; color: inherit; }
 
 /* The section header: kicker + chapter index over a hairline */
 .chapter {
-  display: flex; align-items: baseline; justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between;
   gap: 1rem; padding-bottom: 1.2rem;
   border-top: 1px solid var(--ink); /* one confident top rule per chapter */
   padding-top: 1rem;
 }
+/* line-height:1 so the index never drifts above/below the rule between sections */
+.chapter .kicker { line-height: 1; }
 
 /* Minimal text link with an animated underline */
 .tlink {
