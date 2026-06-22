@@ -31,8 +31,8 @@
 .nav-link { font-size: 0.85rem; line-height: 1; color: var(--ink-2); display: inline-flex; align-items: baseline; gap: 0.4rem; transition: color .3s var(--ease); }
 .nav-idx { font-size: 0.6rem; color: var(--ink-3); }
 .nav-link:hover, .nav-link--active { color: var(--ink); }
-.nav-link--active .nav-idx { color: var(--terra); }
-.nav-link--cta { color: var(--terra); }
+.nav-link--active .nav-idx { color: var(--terra-deep); }
+.nav-link--cta { color: var(--terra-deep); }
 .nav-burger { display: none; flex-direction: column; gap: 6px; background: none; border: none; padding: 6px; cursor: pointer; }
 .nav-burger span { width: 24px; height: 1px; background: var(--ink); transition: transform .35s var(--ease), opacity .3s; }
 .nav-burger--open span:nth-child(1) { transform: translateY(3.5px) rotate(45deg); }
@@ -85,7 +85,7 @@
   margin-top: clamp(2.5rem, 5vh, 3.5rem);
 }
 .disc { border-top: 1px solid var(--ink); padding-top: 1.2rem; }
-.disc-idx { font-size: 0.7rem; color: var(--terra); }
+.disc-idx { font-size: 0.7rem; color: var(--terra-deep); }
 .disc-title { font-size: clamp(1.4rem, 2.4vw, 1.95rem); margin-top: 0.6rem; font-weight: 380; }
 .disc-blurb { margin-top: 0.7rem; font-size: 0.98rem; }
 /* Typographic tech stack — replaces the old percentage bars. Clean sans keywords. */
@@ -169,7 +169,7 @@ main > section.section {
 }
 .honor:first-child { border-top: 1px solid var(--ink); }
 .honor:last-child { border-bottom: 1px solid var(--rule); }
-.honor-idx { font-size: 0.78rem; color: var(--terra); }
+.honor-idx { font-size: 0.78rem; color: var(--terra-deep); }
 .honor-title { font-size: clamp(1.3rem, 2.6vw, 2rem); font-weight: 370; }
 .honor-detail { font-size: 0.95rem; }
 .honor-year { font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
@@ -233,7 +233,7 @@ main > section.section {
 .chat-msg--bot .chat-bubble { background: var(--paper-2); color: var(--ink); }
 .chat-msg--user .chat-bubble { background: var(--ink); color: var(--paper); }
 .chat-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin-top: 0.6rem; }
-.chat-link { font-size: 0.8rem; font-weight: 500; color: var(--terra); border-bottom: 1px solid var(--terra); padding-bottom: 1px; }
+.chat-link { font-size: 0.8rem; font-weight: 500; color: var(--terra-deep); border-bottom: 1px solid var(--terra-deep); padding-bottom: 1px; }
 .chat-typing { display: inline-flex; gap: 4px; }
 .chat-typing span { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-3); animation: chat-bounce 1.2s infinite; }
 .chat-typing span:nth-child(2) { animation-delay: .2s; }
@@ -241,7 +241,7 @@ main > section.section {
 @keyframes chat-bounce { 0%,60%,100% { opacity: .4; } 30% { opacity: 1; } }
 .chat-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.4rem; }
 .chat-chip { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; padding: 0.4rem 0.7rem; background: none; border: 1px solid var(--rule); color: var(--ink-2); cursor: pointer; transition: border-color .25s, color .25s; }
-.chat-chip:hover { border-color: var(--terra); color: var(--terra); }
+.chat-chip:hover { border-color: var(--terra-deep); color: var(--terra-deep); }
 .chat-input { display: flex; gap: 1rem; padding: 0.8rem; border-top: 1px solid var(--rule); align-items: center; }
 /* padding-right keeps the terracotta underline clear of the send button */
 .chat-input input { flex: 1; min-width: 0; background: none; border: none; border-bottom: 1px solid var(--rule); padding: 0.5rem 0.3rem 0.5rem 0; font-family: var(--sans); font-size: 0.92rem; color: var(--ink); }

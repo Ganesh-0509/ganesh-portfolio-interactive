@@ -78,7 +78,8 @@ button { font-family: inherit; color: inherit; background: none; border: none; }
   text-transform: uppercase;
   color: var(--ink-3);
 }
-.kicker .idx { color: var(--terra); }
+/* terra-deep, not terra: small accent text must clear 4.5:1 AA on both bands */
+.kicker .idx { color: var(--terra-deep); }
 
 /* Big serif display */
 .display {
@@ -142,7 +143,7 @@ button { font-family: inherit; color: inherit; background: none; border: none; }
   transition: transform 0.45s var(--ease);
 }
 .tlink:hover::after { transform: scaleX(0); transform-origin: right; }
-.tlink--accent { color: var(--terra); }
+.tlink--accent { color: var(--terra-deep); }
 .tlink .arr { transition: transform 0.4s var(--ease); }
 .tlink:hover .arr { transform: translateX(4px); }
 
@@ -150,7 +151,7 @@ button { font-family: inherit; color: inherit; background: none; border: none; }
 .serif { font-family: var(--serif); }
 .mono { font-family: var(--mono); }
 .muted { color: var(--ink-3); }
-.terra { color: var(--terra); }
+.terra { color: var(--terra-deep); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
