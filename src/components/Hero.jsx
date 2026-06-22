@@ -60,7 +60,7 @@ export default function Hero({ loaded }) {
                 : <div className="hero-portrait-ph" />}
             </div>
             <figcaption className="kicker">
-              <span className="idx">Fig.01</span> &nbsp;{profile.name} — Chennai
+              {profile.name} — Chennai
             </figcaption>
           </motion.figure>
         </div>

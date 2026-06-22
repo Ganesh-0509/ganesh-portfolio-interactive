@@ -14,6 +14,7 @@ const ALIASES = {
   JanaNaadi: ['jananaadi', 'jana', 'sentiment', 'civic', 'ward', 'public', 'knowledge graph'],
   'ISRO HAVK': ['isro', 'havk', 'lunar', 'moon', 'terrain', 'space', 'rover', 'satellite'],
   'Bias-Lab': ['bias', 'bias-lab', 'fairness', 'shap', 'fairlearn', 'audit', 'ethics', 'explainability'],
+  FinMate: ['finmate', 'finance', 'budget', 'budgeting', 'expense', 'expenses', 'money', 'spending', 'fintech', 'co-pilot'],
 }
 
 const linkFor = (name) => socials.find((s) => s.name === name)?.url
@@ -68,7 +69,7 @@ export function getAnswer(raw) {
   if (has(t, 'skill', 'tech', 'stack', 'language', 'tool', 'framework', 'know', 'good at', 'expert'))
     return {
       text:
-        `His core skills: ${skills.map((s) => s.name).join(', ')}.\n\n` +
+        `His core skills: ${skills.join(', ')}.\n\n` +
         'He works across Gen AI (Gemini, GPT-4o, Vertex AI), computer vision (OpenCV), and full-stack — FastAPI/Flask backends with React & Next.js front-ends.',
       chips: ['His projects', 'Achievements', 'Hire / contact'],
     }

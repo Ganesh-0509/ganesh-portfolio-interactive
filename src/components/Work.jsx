@@ -1,46 +1,46 @@
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { projects } from '../data/content'
 import Reveal from './Reveal'
 
-const filters = ['All', 'AI/ML', 'Web', 'Full Stack']
 const EASE = [0.22, 1, 0.36, 1]
 
-function Project({ p, n }) {
+function ProjectCard({ p, n }) {
+  const href = p.demo || p.repo
   return (
     <motion.article
-      layout
-      initial={{ opacity: 0, y: 22 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.6, ease: EASE }}
-      className={`feature ${n % 2 ? 'feature--alt' : ''}`}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.6, ease: EASE, delay: (n % 2) * 0.08 }}
+      className="pcard"
     >
-      <a className="feature-figure" href={p.demo || p.repo} target="_blank" rel="noreferrer" aria-label={p.title}>
+      <a
+        className={`pcard-media tone-${p.tone}`}
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={p.title}
+      >
+        <span className="pcard-chrome" aria-hidden="true"><i /><i /><i /></span>
         {p.image
           ? <img src={p.image} alt={p.title} loading="lazy" />
-          : <div className="feature-ph"><span className="serif">{p.title}</span></div>}
+          : <span className="pcard-ph serif">{p.title}</span>}
       </a>
 
-      <div className="feature-text">
-        <span className="feature-idx mono">{String(n + 1).padStart(2, '0')}</span>
-        <h3 className="feature-title">{p.title}</h3>
-        <p className="feature-blurb muted">{p.blurb}</p>
-        <p className="feature-tech mono">{p.tech.join('  ·  ')}</p>
-        <div className="feature-links">
-          {p.repo && <a className="tlink" href={p.repo} target="_blank" rel="noreferrer">Code <span className="arr">↗</span></a>}
-          {p.demo && <a className="tlink tlink--accent" href={p.demo} target="_blank" rel="noreferrer">Live <span className="arr">↗</span></a>}
-        </div>
+      <div className="pcard-body">
+        <h3 className="pcard-title">{p.title}</h3>
+        <p className="pcard-blurb muted">{p.blurb}</p>
+        <a className="pcard-link tlink tlink--accent" href={href} target="_blank" rel="noreferrer">
+          Read the story <span className="arr">→</span>
+        </a>
       </div>
     </motion.article>
   )
 }
 
 export default function Work() {
-  const [filter, setFilter] = useState('All')
-  // Projects with a live demo come first (stable sort keeps source order within each group).
-  const ordered = [...projects].sort((a, b) => (b.demo ? 1 : 0) - (a.demo ? 1 : 0))
-  const shown = filter === 'All' ? ordered : ordered.filter((p) => p.tags.includes(filter))
+  // The four best — those flagged `featured` in content.js.
+  const featured = projects.filter((p) => p.featured)
 
   return (
     <section id="work" className="section work">
@@ -52,24 +52,11 @@ export default function Work() {
 
         <div className="work-head">
           <Reveal><h2 className="section-title">Things I’ve <em>built</em> &amp; shipped.</h2></Reveal>
-          <Reveal delay={0.08} className="work-filters mono">
-            {filters.map((f) => (
-              <button
-                key={f}
-                className={`filter ${filter === f ? 'filter--active' : ''}`}
-                onClick={() => setFilter(f)}
-              >
-                {f}
-              </button>
-            ))}
-          </Reveal>
         </div>
 
-        <motion.div layout className="feature-list">
-          <AnimatePresence mode="popLayout">
-            {shown.map((p, i) => <Project key={p.title} p={p} n={i} />)}
-          </AnimatePresence>
-        </motion.div>
+        <div className="pcard-grid">
+          {featured.map((p, i) => <ProjectCard key={p.title} p={p} n={i} />)}
+        </div>
       </div>
     </section>
   )

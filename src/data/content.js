@@ -60,13 +60,15 @@ export const tripleThreat = [
   },
 ]
 
+// Flat list — only the names are surfaced (in the chatbot). The old skill-bar
+// percentages were dropped when the progress-bar UI was removed in the redesign.
 export const skills = [
-  { name: 'Python', level: 90 },
-  { name: 'Machine Learning', level: 78 },
-  { name: 'Data Structures & Algorithms', level: 80 },
-  { name: 'JavaScript / TypeScript', level: 85 },
-  { name: 'HTML5 & CSS3', level: 92 },
-  { name: 'SQL', level: 78 },
+  'Python',
+  'Machine Learning',
+  'Data Structures & Algorithms',
+  'JavaScript / TypeScript',
+  'HTML5 & CSS3',
+  'SQL',
 ]
 
 export const projects = [

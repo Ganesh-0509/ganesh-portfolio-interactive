@@ -22,7 +22,7 @@
   transition: padding .4s var(--ease), background .4s var(--ease), border-color .4s var(--ease);
 }
 .nav--scrolled {
-  padding-block: 0.85rem; background: rgba(242, 235, 224, 0.82);
+  padding-block: 0.85rem; background: rgba(247, 233, 231, 0.82);
   backdrop-filter: blur(10px); border-bottom-color: var(--rule);
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; }
@@ -96,35 +96,70 @@
 .disc-stack li { font-size: 0.82rem; color: var(--ink-2); letter-spacing: 0.01em; }
 .disc-stack li:not(:last-child)::after { content: '·'; color: var(--ink-3); margin: 0 0.65rem; }
 
-/* ── Work / features ──────────────────────────────────────────────────────── */
-.work-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-bottom: clamp(2rem, 5vh, 3.5rem); }
-.work-filters { display: flex; gap: 1.9rem; }
-.filter {
-  background: none; border: none; cursor: pointer; font-size: 0.72rem; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--ink-3); padding-bottom: 4px; border-bottom: 1px solid transparent;
-  transition: color .3s var(--ease), border-color .3s var(--ease);
-}
-.filter:hover { color: var(--ink); }
-.filter--active { color: var(--terra); border-bottom-color: var(--terra); }
+/* ── Work / project cards ─────────────────────────────────────────────────── */
+.work-head { margin-bottom: clamp(2rem, 5vh, 3.5rem); }
 
-.feature-list { display: flex; flex-direction: column; }
-.feature {
-  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem);
-  align-items: center; padding-block: clamp(3rem, 7vh, 5.5rem); border-top: 1px solid var(--rule);
+.pcard-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem); margin-top: clamp(2rem, 5vh, 3.5rem);
 }
-.feature:first-child { border-top: 1px solid var(--ink); }
-.feature--alt .feature-figure { order: 2; }
-.feature--alt .feature-text { order: 1; }
-.feature-figure { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--paper-2); }
-.feature-figure img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
-.feature-figure:hover img { transform: scale(1.04); }
-.feature-ph { width: 100%; height: 100%; display: grid; place-items: center; padding: 2rem; }
-.feature-ph .serif { font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--ink-3); text-align: center; letter-spacing: -0.02em; }
-.feature-idx { font-size: 0.78rem; color: var(--terra); }
-.feature-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-top: 0.5rem; font-weight: 370; }
-.feature-blurb { margin-top: 1rem; font-size: 1.05rem; max-width: 48ch; }
-.feature-tech { margin-top: 1.2rem; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--ink-3); }
-.feature-links { display: flex; gap: 1.6rem; margin-top: 1.6rem; }
+
+.pcard {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--paper); border: 1px solid var(--rule); border-radius: 18px;
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s var(--ease);
+}
+.pcard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 48px -28px rgba(42, 35, 32, 0.5);
+  border-color: var(--ochre-rule);
+}
+
+/* Faux app-window preview: a tinted chrome bar sits over the screenshot */
+.pcard-media {
+  display: flex; flex-direction: column; aspect-ratio: 16 / 10;
+  background: var(--grad, var(--paper-2)); overflow: hidden;
+}
+.pcard-chrome {
+  flex: 0 0 auto; height: 30px; display: flex; align-items: center; gap: 6px;
+  padding-inline: 13px; background: var(--grad, var(--brown));
+}
+.pcard-chrome i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.85); }
+.pcard-media img {
+  flex: 1; min-height: 0; width: 100%; object-fit: cover; object-position: 50% 0;
+  transition: transform .7s var(--ease);
+}
+.pcard:hover .pcard-media img { transform: scale(1.03); }
+.pcard-ph {
+  flex: 1; display: grid; place-items: center; padding: 1.5rem; text-align: center;
+  font-size: clamp(1.4rem, 3vw, 2rem); color: rgba(255, 255, 255, 0.92); letter-spacing: -0.02em;
+}
+
+.pcard-body { display: flex; flex-direction: column; flex: 1; padding: clamp(1.4rem, 2.5vw, 2rem); }
+.pcard-title { font-size: clamp(1.4rem, 2.4vw, 1.95rem); font-weight: 380; }
+.pcard-blurb {
+  margin-top: 0.7rem; font-size: 0.96rem;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.pcard-link { margin-top: auto; padding-top: 1.4rem; align-self: flex-start; }
+
+/* Per-project banner tints — warm, on-palette */
+.tone-coral   { --grad: linear-gradient(120deg, #d98a86, #b96a6a); }
+.tone-sage    { --grad: linear-gradient(120deg, #aab79a, #899a76); }
+.tone-sky     { --grad: linear-gradient(120deg, #9db3c5, #7d9bb1); }
+.tone-mustard { --grad: linear-gradient(120deg, #d9b274, #c79a6a); }
+
+/* ── Alternating slide backgrounds ────────────────────────────────────────────
+   Each content section reads like a slide. The hero keeps the body's diagonal
+   gradient wash as its showcase; every section below gets a FLAT band so the
+   alternation reads crisply instead of fighting the gradient.
+   Odd → blush paper, even → warm cream. Full-bleed: the band spans the viewport
+   while content stays in .container. */
+main > section.section:nth-of-type(odd)  { background: var(--paper); }
+main > section.section:nth-of-type(even) { background: var(--paper-2); }
+main > section.section {
+  box-shadow: inset 0 1px 0 var(--rule-soft), inset 0 -1px 0 var(--rule-soft);
+}
 
 /* ── Wins / honors ────────────────────────────────────────────────────────── */
 .honors { margin-top: clamp(2.5rem, 6vh, 4rem); display: flex; flex-direction: column; }
@@ -176,7 +211,7 @@
   position: fixed; right: clamp(1rem, 3vw, 2rem); bottom: clamp(1rem, 3vw, 2rem); z-index: 900;
   width: 54px; height: 54px; border-radius: 50%; border: none;
   background: var(--terra); color: var(--paper); display: grid; place-items: center; cursor: pointer;
-  box-shadow: 0 10px 26px rgba(177, 74, 49, 0.32);
+  box-shadow: 0 10px 26px rgba(185, 106, 106, 0.32);
 }
 .chat-fab-ping { position: absolute; top: 9px; right: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); }
 .chat-panel {
@@ -222,8 +257,6 @@
   .about-stats { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
   .about-stats .stat { flex: 1; min-width: 120px; border-top: 1px solid var(--ink); }
   .disc-grid { grid-template-columns: 1fr; }
-  .feature, .feature--alt .feature-figure, .feature--alt .feature-text { grid-template-columns: 1fr; order: 0; }
-  .feature-figure { order: -1; }
   .honor { grid-template-columns: auto 1fr; row-gap: 0.3rem; }
   .honor-detail, .honor-year { grid-column: 2; }
   .contact-grid { grid-template-columns: 1fr; }
@@ -238,4 +271,5 @@
   .nav-links--open { transform: translateX(0); }
   .nav-link { font-size: 1.6rem; font-family: var(--serif); }
   .nav-idx { display: none; }
+  .pcard-grid { grid-template-columns: 1fr; }
 }

@@ -2,7 +2,7 @@ import { profile, socials } from '../data/content'
 import { scrollToId } from '../lib/hooks'
 
 export default function Footer() {
-  const year = 2026
+  const year = new Date().getFullYear()
   const links = socials.filter((s) => s.url)
   return (
     <footer className="footer">

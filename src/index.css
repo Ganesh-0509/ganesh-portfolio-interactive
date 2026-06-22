@@ -1,25 +1,26 @@
 /* ════════════════════════════════════════════════════════════════════════════
-   THEME — "Warm Editorial"  ·  a printed magazine, translated to screen
-   Bone paper · ink type · a single terracotta accent · ultra-thin ochre rules
+   THEME — "Blush Editorial"  ·  a printed magazine, translated to screen
+   Pale-pink paper · cream base · light-brown washes · a dusty-rose accent
    Typography is the design. Whitespace is a feature. Motion is barely there.
    ════════════════════════════════════════════════════════════════════════════ */
 
 :root {
-  /* Warm near-monochrome paper */
-  --paper: #f2ebe0;        /* bone canvas */
-  --paper-2: #ece3d4;      /* faint sunken fill, used sparingly */
-  --ink: #211c18;          /* warm near-black — headlines & text */
-  --ink-2: #4f4639;        /* secondary text */
-  --ink-3: #8c8071;        /* captions / muted */
+  /* Pale pink + cream paper, with a light-brown shade */
+  --paper: #f7e9e7;        /* pale blush-pink canvas */
+  --paper-2: #f1e3d3;      /* warm cream — faint sunken fill */
+  --brown: #cdb59a;        /* light brown / taupe — background washes */
+  --ink: #2a2320;          /* warm near-black — headlines & text */
+  --ink-2: #574b40;        /* secondary text */
+  --ink-3: #6f6356;        /* captions / muted — clears WCAG AA on paper */
 
   /* The one accent + the one structural line */
-  --terra: #b14a31;        /* terracotta — used sparingly, with intent */
-  --terra-deep: #8f3a26;   /* hover / pressed accent */
-  --ochre: #c08a3e;        /* warm hairline tint */
+  --terra: #b96a6a;        /* dusty rose — used sparingly, with intent */
+  --terra-deep: #97504f;   /* hover / pressed accent */
+  --ochre: #c79a6a;        /* soft ochre-brown hairline tint */
 
-  --rule: rgba(33, 28, 24, 0.16);     /* default hairline */
-  --rule-soft: rgba(33, 28, 24, 0.09);
-  --ochre-rule: rgba(192, 138, 62, 0.55);
+  --rule: rgba(42, 35, 32, 0.16);     /* default hairline */
+  --rule-soft: rgba(42, 35, 32, 0.09);
+  --ochre-rule: rgba(199, 154, 106, 0.55);
 
   /* Type */
   --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
@@ -39,7 +40,13 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
 body {
-  background: var(--paper);
+  background-color: var(--paper);
+  /* a light-brown wash carried across the whole page, with blush-pink
+     glows at opposite corners so the page reads pink AND brown */
+  background-image:
+    radial-gradient(70% 55% at 0% 0%, rgba(247, 233, 231, 0.92) 0%, transparent 55%),
+    radial-gradient(70% 55% at 100% 100%, rgba(247, 233, 231, 0.85) 0%, transparent 55%),
+    linear-gradient(158deg, rgba(205, 181, 154, 0.48) 0%, rgba(205, 181, 154, 0.64) 46%, rgba(205, 181, 154, 0.50) 100%);
   color: var(--ink);
   font-family: var(--sans);
   font-weight: 400;
