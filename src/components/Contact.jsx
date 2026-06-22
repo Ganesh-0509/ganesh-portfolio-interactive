@@ -49,9 +49,6 @@ export default function Contact() {
               <a className="contact-line" href={`mailto:${profile.email}`}>
                 <span className="kicker">Email</span><span className="contact-val">{profile.email}</span>
               </a>
-              <a className="contact-line" href={`tel:${profile.phone.replace(/\s/g, '')}`}>
-                <span className="kicker">Phone</span><span className="contact-val">{profile.phone}</span>
-              </a>
               <div className="contact-line">
                 <span className="kicker">Based in</span><span className="contact-val">{profile.location}</span>
               </div>
@@ -76,7 +73,7 @@ export default function Contact() {
                 <span className="field-label kicker">Message</span>
                 <textarea name="message" rows="3" required placeholder="tell me a little…" />
               </label>
-              <button type="submit" className="tlink tlink--accent contact-send" disabled={status === 'sending'}>
+              <button type="submit" className="contact-send" disabled={status === 'sending'}>
                 {status === 'sending' ? 'Sending…' : status === 'sent' ? 'Sent — thank you ✓' : 'Send message →'}
               </button>
               {status === 'error' && <p className="form-note terra">Something broke — email me directly instead.</p>}

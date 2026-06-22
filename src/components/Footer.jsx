@@ -1,4 +1,4 @@
-import { profile, socials } from '../data/content'
+import { socials } from '../data/content'
 import { scrollToId } from '../lib/hooks'
 
 export default function Footer() {
@@ -17,8 +17,7 @@ export default function Footer() {
           </nav>
         </div>
         <div className="footer-bottom">
-          <span className="footer-name serif">{profile.name}</span>
-          <span className="footer-note mono">Designed &amp; built in Chennai · © {year}</span>
+          <span className="footer-note mono">© {year} · All rights reserved</span>
         </div>
       </div>
     </footer>
