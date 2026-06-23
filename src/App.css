@@ -187,25 +187,40 @@ main > section.section {
   box-shadow: inset 0 1px 0 var(--rule-soft), inset 0 -1px 0 var(--rule-soft);
 }
 
-/* ── Wins / honors ────────────────────────────────────────────────────────── */
-.honors { margin-top: clamp(2.5rem, 6vh, 4rem); display: flex; flex-direction: column; gap: 0.9rem; }
-.honor {
-  display: grid; grid-template-columns: auto 1fr auto; gap: clamp(1rem, 3vw, 2rem);
-  align-items: start; padding: 1.5rem clamp(1.2rem, 2.5vw, 1.8rem);
-  background: var(--card); border: 1px solid var(--rule); border-radius: 14px;
-  transition: border-color .4s var(--ease), box-shadow .4s var(--ease);
+/* ── Wins / proud moments — image-topped cards ────────────────────────────── */
+.wins-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem);
+  margin-top: clamp(2.5rem, 6vh, 4rem);
 }
-.honor:hover { border-color: var(--ochre-rule); box-shadow: 0 14px 32px -26px rgba(42, 35, 32, 0.5); }
-.honor-idx { font-size: 0.78rem; color: var(--terra-deep); padding-top: 0.35rem; }
-.honor-body { display: flex; flex-direction: column; gap: 0.5rem; }
-.honor-head { display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; }
-.honor-title { font-size: clamp(1.3rem, 2.6vw, 1.9rem); font-weight: 370; }
-.honor-badge {
-  font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terra-deep);
-  border: 1px solid var(--ochre-rule); border-radius: 999px; padding: 0.26rem 0.62rem; white-space: nowrap;
+.wincard {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--card); border: 1px solid var(--rule); border-radius: 18px;
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s var(--ease);
 }
-.honor-detail { font-size: 0.96rem; max-width: 60ch; }
-.honor-year { font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); padding-top: 0.4rem; white-space: nowrap; }
+.wincard:hover {
+  transform: translateY(-4px); border-color: var(--ochre-rule);
+  box-shadow: 0 22px 48px -28px rgba(42, 35, 32, 0.5);
+}
+.wincard-img { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--paper-2); }
+.wincard-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+.wincard:hover .wincard-img img { transform: scale(1.03); }
+.wincard-medal {
+  position: absolute; top: 0.8rem; left: 0.8rem; font-size: 1.05rem;
+  width: 2.2rem; height: 2.2rem; display: grid; place-items: center;
+  background: rgba(253, 247, 244, 0.92); border-radius: 50%;
+  box-shadow: 0 6px 16px -8px rgba(42, 35, 32, 0.6);
+}
+.wincard-body { display: flex; flex-direction: column; gap: 0.55rem; padding: clamp(1.3rem, 2.2vw, 1.8rem); }
+.wincard-meta {
+  display: flex; align-items: center; gap: 0.7rem;
+  font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3);
+}
+.wincard-chip {
+  color: var(--terra-deep); border: 1px solid var(--ochre-rule);
+  border-radius: 999px; padding: 0.22rem 0.62rem;
+}
+.wincard-title { font-size: clamp(1.2rem, 2vw, 1.55rem); font-weight: 380; line-height: 1.15; }
+.wincard-desc { font-size: 0.95rem; }
 
 /* ── Contact ──────────────────────────────────────────────────────────────── */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 6vw, 5rem); margin-top: clamp(2.5rem, 6vh, 4rem); }
@@ -305,8 +320,6 @@ main > section.section {
   .about-stats { flex-direction: row; flex-wrap: wrap; gap: 1rem; }
   .about-stats .stat { flex: 1; min-width: 140px; }
   .disc-grid { grid-template-columns: 1fr; }
-  .honor { grid-template-columns: auto 1fr; row-gap: 0.6rem; }
-  .honor-year { grid-column: 2; padding-top: 0; }
   .contact-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 680px) {
@@ -319,5 +332,5 @@ main > section.section {
   .nav-links--open { transform: translateX(0); }
   .nav-link { font-size: 1.6rem; font-family: var(--serif); }
   .nav-idx { display: none; }
-  .pcard-grid { grid-template-columns: 1fr; }
+  .pcard-grid, .wins-grid { grid-template-columns: 1fr; }
 }

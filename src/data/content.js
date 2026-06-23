@@ -147,31 +147,39 @@ export const projects = [
   },
 ]
 
-// "Wins" / receipts — proud moments (2025).
+// "Wins" / receipts — proud moments (2025). Image-topped cards.
 export const wins = [
   {
-    title: 'Intel AI Hackathon 2025',
-    badge: 'Top 12',
+    title: 'Top 12 · Intel AI Hackathon 2025',
+    chip: 'Hackathon',
+    medal: '🥇',
     detail: 'National recognition + ₹25,000 for Enterprise360, an AI assistant for unified enterprise insights.',
     year: 'May 2025',
+    image: asset('win-intel.png'),
   },
   {
-    title: 'VIT Symposium',
-    badge: 'Winner',
+    title: 'Winner · VIT Symposium',
+    chip: 'Symposium',
+    medal: '💰',
     detail: 'Presented FinMate and took home ₹10,000 for a practical, problem-first finance assistant.',
     year: 'Oct 2025',
+    image: asset('win-vit.jpg'),
   },
   {
-    title: 'ASME IMECE India 2025',
-    badge: 'Special Mention',
+    title: 'Special Mention · ASME IMECE India',
+    chip: 'Competition',
+    medal: '⭐',
     detail: 'Recognized at Brain Bolt — The Engineers’ Sprint in Hyderabad for creative engineering & teamwork.',
     year: 'Sep 2025',
+    image: asset('win-asme.jpg'),
   },
   {
-    title: 'OpenAI × NxtWave Buildathon',
-    badge: 'Finalist',
+    title: 'Finalist · OpenAI × NxtWave',
+    chip: 'Buildathon',
+    medal: '🚀',
     detail: 'Top 10 in the Tamil Nadu regionals with Sahaay-AI — now heading to the National round.',
     year: 'Nov 2025',
+    image: asset('win-nxtwave.jpg'),
   },
 ]
 

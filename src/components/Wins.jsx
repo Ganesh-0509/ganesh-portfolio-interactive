@@ -15,26 +15,29 @@ export default function Wins() {
 
         <Reveal><h2 className="section-title">Proof of <em>work</em>.</h2></Reveal>
 
-        <div className="honors">
+        <div className="wins-grid">
           {wins.map((w, i) => (
-            <motion.div
+            <motion.article
               key={w.title}
-              className="honor"
-              initial={{ opacity: 0, y: 16 }}
+              className="wincard"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-10% 0px' }}
-              transition={{ duration: 0.6, ease: EASE, delay: i * 0.06 }}
+              transition={{ duration: 0.6, ease: EASE, delay: (i % 2) * 0.08 }}
             >
-              <span className="honor-idx mono">{String(i + 1).padStart(2, '0')}</span>
-              <div className="honor-body">
-                <div className="honor-head">
-                  <h3 className="honor-title">{w.title}</h3>
-                  {w.badge && <span className="honor-badge mono">{w.badge}</span>}
-                </div>
-                <p className="honor-detail muted">{w.detail}</p>
+              <div className="wincard-img">
+                <img src={w.image} alt={w.title} loading="lazy" />
+                <span className="wincard-medal" aria-hidden="true">{w.medal}</span>
               </div>
-              <span className="honor-year mono">{w.year}</span>
-            </motion.div>
+              <div className="wincard-body">
+                <div className="wincard-meta mono">
+                  <span>{w.year}</span>
+                  {w.chip && <span className="wincard-chip">{w.chip}</span>}
+                </div>
+                <h3 className="wincard-title">{w.title}</h3>
+                <p className="wincard-desc muted">{w.detail}</p>
+              </div>
+            </motion.article>
           ))}
         </div>
       </div>
