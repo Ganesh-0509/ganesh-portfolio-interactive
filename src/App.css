@@ -181,16 +181,22 @@ main > section.section {
 /* ── Wins / honors ────────────────────────────────────────────────────────── */
 .honors { margin-top: clamp(2.5rem, 6vh, 4rem); display: flex; flex-direction: column; gap: 0.9rem; }
 .honor {
-  display: grid; grid-template-columns: auto 1fr auto auto; gap: clamp(1rem, 3vw, 2.5rem);
-  align-items: baseline; padding: 1.4rem clamp(1.2rem, 2.5vw, 1.8rem);
+  display: grid; grid-template-columns: auto 1fr auto; gap: clamp(1rem, 3vw, 2rem);
+  align-items: start; padding: 1.5rem clamp(1.2rem, 2.5vw, 1.8rem);
   background: var(--card); border: 1px solid var(--rule); border-radius: 14px;
   transition: border-color .4s var(--ease), box-shadow .4s var(--ease);
 }
 .honor:hover { border-color: var(--ochre-rule); box-shadow: 0 14px 32px -26px rgba(42, 35, 32, 0.5); }
-.honor-idx { font-size: 0.78rem; color: var(--terra-deep); }
-.honor-title { font-size: clamp(1.3rem, 2.6vw, 2rem); font-weight: 370; }
-.honor-detail { font-size: 0.95rem; }
-.honor-year { font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.honor-idx { font-size: 0.78rem; color: var(--terra-deep); padding-top: 0.35rem; }
+.honor-body { display: flex; flex-direction: column; gap: 0.5rem; }
+.honor-head { display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; }
+.honor-title { font-size: clamp(1.3rem, 2.6vw, 1.9rem); font-weight: 370; }
+.honor-badge {
+  font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terra-deep);
+  border: 1px solid var(--ochre-rule); border-radius: 999px; padding: 0.26rem 0.62rem; white-space: nowrap;
+}
+.honor-detail { font-size: 0.96rem; max-width: 60ch; }
+.honor-year { font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); padding-top: 0.4rem; white-space: nowrap; }
 
 /* ── Contact ──────────────────────────────────────────────────────────────── */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 6vw, 5rem); margin-top: clamp(2.5rem, 6vh, 4rem); }
@@ -290,8 +296,8 @@ main > section.section {
   .about-stats { flex-direction: row; flex-wrap: wrap; gap: 1rem; }
   .about-stats .stat { flex: 1; min-width: 140px; }
   .disc-grid { grid-template-columns: 1fr; }
-  .honor { grid-template-columns: auto 1fr; row-gap: 0.3rem; }
-  .honor-detail, .honor-year { grid-column: 2; }
+  .honor { grid-template-columns: auto 1fr; row-gap: 0.6rem; }
+  .honor-year { grid-column: 2; padding-top: 0; }
   .contact-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 680px) {

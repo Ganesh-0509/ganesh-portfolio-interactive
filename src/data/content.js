@@ -147,11 +147,32 @@ export const projects = [
   },
 ]
 
-// "Wins" / receipts — achievements (from the résumé, 2025).
+// "Wins" / receipts — proud moments (2025).
 export const wins = [
-  { title: 'Intel AI Hackathon 2025', detail: '1st place — 90+ teams (Enterprise360)', year: '2025', emoji: '🏆' },
-  { title: 'OpenAI × NxtWave Buildathon', detail: 'State 1st · National Top 10', year: '2025', emoji: '🥇' },
-  { title: 'VØID v1 Hackathon — VIT', detail: '2nd Runners-Up · 90 teams', year: '2025', emoji: '🥈' },
+  {
+    title: 'Intel AI Hackathon 2025',
+    badge: 'Top 12',
+    detail: 'National recognition + ₹25,000 for Enterprise360, an AI assistant for unified enterprise insights.',
+    year: 'May 2025',
+  },
+  {
+    title: 'VIT Symposium',
+    badge: 'Winner',
+    detail: 'Presented FinMate and took home ₹10,000 for a practical, problem-first finance assistant.',
+    year: 'Oct 2025',
+  },
+  {
+    title: 'ASME IMECE India 2025',
+    badge: 'Special Mention',
+    detail: 'Recognized at Brain Bolt — The Engineers’ Sprint in Hyderabad for creative engineering & teamwork.',
+    year: 'Sep 2025',
+  },
+  {
+    title: 'OpenAI × NxtWave Buildathon',
+    badge: 'Finalist',
+    detail: 'Top 10 in the Tamil Nadu regionals with Sahaay-AI — now heading to the National round.',
+    year: 'Nov 2025',
+  },
 ]
 
 export const socials = [

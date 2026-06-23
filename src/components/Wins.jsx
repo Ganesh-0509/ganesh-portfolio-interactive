@@ -26,17 +26,16 @@ export default function Wins() {
               transition={{ duration: 0.6, ease: EASE, delay: i * 0.06 }}
             >
               <span className="honor-idx mono">{String(i + 1).padStart(2, '0')}</span>
-              <h3 className="honor-title">{w.title}</h3>
-              <span className="honor-detail muted">{w.detail}</span>
+              <div className="honor-body">
+                <div className="honor-head">
+                  <h3 className="honor-title">{w.title}</h3>
+                  {w.badge && <span className="honor-badge mono">{w.badge}</span>}
+                </div>
+                <p className="honor-detail muted">{w.detail}</p>
+              </div>
               <span className="honor-year mono">{w.year}</span>
             </motion.div>
           ))}
-          <div className="honor honor--note">
-            <span className="honor-idx mono">+</span>
-            <h3 className="honor-title">LeetCode 50-day badge</h3>
-            <span className="honor-detail muted">daily DSA, strong fundamentals</span>
-            <span className="honor-year mono">2025</span>
-          </div>
         </div>
       </div>
     </section>
