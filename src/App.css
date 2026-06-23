@@ -145,6 +145,7 @@
 .pcard-media {
   display: flex; flex-direction: column; aspect-ratio: 16 / 10;
   background: var(--grad, var(--paper-2)); overflow: hidden;
+  width: 100%; padding: 0; cursor: pointer; text-align: left; font: inherit;
 }
 .pcard-chrome {
   flex: 0 0 auto; height: 30px; display: flex; align-items: center; gap: 6px;
@@ -167,13 +168,47 @@
   margin-top: 0.7rem; font-size: 0.96rem;
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
-.pcard-link { margin-top: auto; padding-top: 1.4rem; align-self: flex-start; }
+.pcard-link { margin-top: auto; padding: 1.4rem 0 2px; align-self: flex-start; cursor: pointer; font: inherit; }
 
 /* Per-project banner tints — warm, on-palette */
 .tone-coral   { --grad: linear-gradient(120deg, #d98a86, #b96a6a); }
 .tone-sage    { --grad: linear-gradient(120deg, #aab79a, #899a76); }
 .tone-sky     { --grad: linear-gradient(120deg, #9db3c5, #7d9bb1); }
 .tone-mustard { --grad: linear-gradient(120deg, #d9b274, #c79a6a); }
+
+/* ── Project story modal ──────────────────────────────────────────────────── */
+.story-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  display: grid; place-items: center; padding: clamp(1rem, 4vw, 2.5rem);
+  background: rgba(33, 28, 24, 0.5); backdrop-filter: blur(5px);
+}
+.story-modal {
+  position: relative; width: min(640px, 100%); max-height: 88vh; overflow-y: auto;
+  background: var(--card); border: 1px solid var(--rule); border-radius: 20px;
+  box-shadow: 0 40px 90px -40px rgba(33, 28, 24, 0.7);
+}
+.story-close {
+  position: absolute; top: 0.85rem; right: 0.85rem; z-index: 2; cursor: pointer;
+  width: 2.2rem; height: 2.2rem; border-radius: 50%;
+  display: grid; place-items: center; font-size: 1.5rem; line-height: 1;
+  background: rgba(253, 247, 244, 0.92); border: 1px solid var(--rule); color: var(--ink);
+  transition: background .25s var(--ease), color .25s var(--ease);
+}
+.story-close:hover { background: var(--ink); color: var(--paper); }
+.story-media {
+  position: relative; display: flex; flex-direction: column;
+  aspect-ratio: 16 / 9; overflow: hidden;
+  background: var(--grad, var(--paper-2)); border-radius: 20px 20px 0 0;
+}
+.story-media img { flex: 1; min-height: 0; width: 100%; object-fit: cover; object-position: 50% 0; }
+.story-body { padding: clamp(1.6rem, 4vw, 2.6rem); }
+.story-title { font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 380; }
+.story-para { margin-top: 1.1rem; font-size: 1rem; line-height: 1.7; }
+.story-tech { margin-top: 1.6rem; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--ink-3); }
+.story-links {
+  display: flex; gap: 1.8rem; flex-wrap: wrap;
+  margin-top: 1.8rem; padding-top: 1.4rem; border-top: 1px solid var(--rule);
+}
 
 /* ── Alternating slide backgrounds ────────────────────────────────────────────
    Each content section reads like a slide. The hero keeps the body's diagonal

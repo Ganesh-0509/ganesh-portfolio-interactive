@@ -76,11 +76,15 @@ export const projects = [
     title: 'CampusSync Edge',
     blurb:
       'Full-stack AI platform with a production RAG pipeline (Gemini embeddings + PGVector + Redis), hallucination detection, and a RandomForest classifier (82.1% F1) exported to ONNX for edge inference.',
+    story: [
+      'Campuses run on scattered systems — notices, schedules, records — and getting a straight answer means hunting through all of them. CampusSync Edge folds that into one assistant you can just ask.',
+      'Under the hood it is a production RAG pipeline: Gemini embeddings stored in PGVector, Redis caching the hot paths, and a hallucination-detection layer that keeps answers grounded in real sources. A RandomForest classifier (82.1% F1) is exported to ONNX so the lighter inference can run at the edge, close to the user.',
+    ],
     tags: ['AI/ML', 'Full Stack'],
     tech: ['FastAPI', 'React', 'PGVector', 'Gemini', 'ONNX'],
     tone: 'coral',
     image: asset('campusSync.png'),
-    repo: 'https://github.com/Ganesh-0509/CampusSync-Edge',
+    repo: 'https://github.com/Ganesh-0509/Campus-Sync-Edge-Ai',
     demo: '',
     featured: true,
   },
@@ -88,6 +92,10 @@ export const projects = [
     title: 'Namma Connect',
     blurb:
       'Multi-tenant NGO coordination platform: OCR-classifies field reports (Tamil & English), auto-matches volunteers by skills, proximity and reliability, and escalates SLA breaches — with GPS-verified check-ins.',
+    story: [
+      'Grassroots NGOs coordinate volunteers, field reports and crises mostly over WhatsApp and spreadsheets. Namma Connect gives them a real operations layer.',
+      'It OCR-classifies field reports in Tamil and English, auto-matches volunteers by skills, proximity and reliability, and escalates SLA breaches before they slip — with GPS-verified check-ins so the dispatch record reflects what actually happened on the ground. Built multi-tenant, so every organisation keeps its own space.',
+    ],
     tags: ['AI/ML', 'Full Stack'],
     tech: ['React', 'FastAPI', 'Gemini', 'Supabase', 'OpenCV'],
     tone: 'sage',
@@ -100,6 +108,10 @@ export const projects = [
     title: 'JanaNaadi',
     blurb:
       "Real-time public-sentiment platform with a knowledge graph spanning India's 250 MCD wards.",
+    story: [
+      'Public sentiment moves faster than any dashboard built for it. JanaNaadi listens in real time and maps the mood across India’s 250 MCD wards.',
+      'A knowledge graph ties together places, issues and voices, so a spike in one ward reads in context instead of as noise. The frontend renders it with D3 over a FastAPI backend, with Gemini doing the heavy lifting on language.',
+    ],
     tags: ['AI/ML', 'Full Stack'],
     tech: ['FastAPI', 'React', 'D3.js', 'Gemini'],
     tone: 'sky',
@@ -124,6 +136,10 @@ export const projects = [
     title: 'Bias-Lab',
     blurb:
       'Enterprise AI-fairness platform: upload a dataset and get an 8-stage bias audit — proxy detection, SHAP explainability, counterfactual tests, and Gemini-written mitigation reports. A production-grade UI over what AIF360/Fairlearn leave to code.',
+    story: [
+      'Fairness tooling like AIF360 and Fairlearn is powerful, but it lives in code — which leaves most teams out. Bias-Lab puts a production-grade UI over it.',
+      'Upload a dataset and it runs an 8-stage audit: proxy detection, SHAP explainability, counterfactual tests, and a Gemini-written mitigation report you can hand straight to a stakeholder. The goal is to make a real bias review something a team can run in an afternoon, not a research project.',
+    ],
     tags: ['AI/ML', 'Full Stack'],
     tech: ['React', 'FastAPI', 'SHAP', 'Fairlearn', 'Gemini'],
     tone: 'coral',
