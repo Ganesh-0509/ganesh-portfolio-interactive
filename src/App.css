@@ -77,7 +77,7 @@
    project cards (blush card on the cream About band). */
 .stat {
   padding: 1.3rem 1.45rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.4rem;
-  background: var(--paper); border: 1px solid var(--rule); border-radius: 14px;
+  background: var(--card); border: 1px solid var(--rule); border-radius: 14px;
   transition: transform .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
 }
 .stat:hover {
@@ -93,7 +93,15 @@
   display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 4vw, 3rem);
   margin-top: clamp(2.5rem, 5vh, 3.5rem);
 }
-.disc { border-top: 1px solid var(--ink); padding-top: 1.2rem; }
+/* Boxed discipline cards (no transform on hover — these are Reveal-wrapped and
+   framer holds an inline transform, so we lift with border + shadow instead). */
+.disc {
+  display: flex; flex-direction: column;
+  background: var(--card); border: 1px solid var(--rule); border-radius: 16px;
+  padding: clamp(1.4rem, 2.2vw, 2rem);
+  transition: border-color .4s var(--ease), box-shadow .4s var(--ease);
+}
+.disc:hover { border-color: var(--ochre-rule); box-shadow: 0 18px 40px -28px rgba(42, 35, 32, 0.5); }
 .disc-idx { font-size: 0.7rem; color: var(--terra-deep); }
 .disc-title { font-size: clamp(1.4rem, 2.4vw, 1.95rem); margin-top: 0.6rem; font-weight: 380; }
 .disc-blurb { margin-top: 0.7rem; font-size: 0.98rem; }
@@ -115,7 +123,7 @@
 
 .pcard {
   display: flex; flex-direction: column; overflow: hidden;
-  background: var(--paper); border: 1px solid var(--rule); border-radius: 18px;
+  background: var(--card); border: 1px solid var(--rule); border-radius: 18px;
   transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s var(--ease);
 }
 .pcard:hover {
@@ -171,13 +179,14 @@ main > section.section {
 }
 
 /* ── Wins / honors ────────────────────────────────────────────────────────── */
-.honors { margin-top: clamp(2.5rem, 6vh, 4rem); display: flex; flex-direction: column; }
+.honors { margin-top: clamp(2.5rem, 6vh, 4rem); display: flex; flex-direction: column; gap: 0.9rem; }
 .honor {
   display: grid; grid-template-columns: auto 1fr auto auto; gap: clamp(1rem, 3vw, 2.5rem);
-  align-items: baseline; padding-block: 1.6rem; border-top: 1px solid var(--rule);
+  align-items: baseline; padding: 1.4rem clamp(1.2rem, 2.5vw, 1.8rem);
+  background: var(--card); border: 1px solid var(--rule); border-radius: 14px;
+  transition: border-color .4s var(--ease), box-shadow .4s var(--ease);
 }
-.honor:first-child { border-top: 1px solid var(--ink); }
-.honor:last-child { border-bottom: 1px solid var(--rule); }
+.honor:hover { border-color: var(--ochre-rule); box-shadow: 0 14px 32px -26px rgba(42, 35, 32, 0.5); }
 .honor-idx { font-size: 0.78rem; color: var(--terra-deep); }
 .honor-title { font-size: clamp(1.3rem, 2.6vw, 2rem); font-weight: 370; }
 .honor-detail { font-size: 0.95rem; }
@@ -187,13 +196,20 @@ main > section.section {
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 6vw, 5rem); margin-top: clamp(2.5rem, 6vh, 4rem); }
 .contact-title { font-size: clamp(2.6rem, 6vw, 5rem); }
 .contact-lead { margin-top: 1.6rem; font-size: 1.12rem; max-width: 40ch; }
-.contact-details { margin-top: clamp(2rem, 4vh, 3rem); display: flex; flex-direction: column; }
-.contact-line { display: flex; flex-direction: column; gap: 0.35rem; padding-block: 1rem; border-top: 1px solid var(--rule); }
-.contact-line:first-child { border-top: 1px solid var(--ink); }
-.contact-line:last-child { border-bottom: 1px solid var(--rule); }
+.contact-details { margin-top: clamp(2rem, 4vh, 3rem); display: flex; flex-direction: column; gap: 0.8rem; }
+.contact-line {
+  display: flex; flex-direction: column; gap: 0.3rem; padding: 0.95rem 1.15rem;
+  background: var(--card); border: 1px solid var(--rule); border-radius: 12px;
+  transition: border-color .3s var(--ease);
+}
+.contact-line[href]:hover { border-color: var(--ochre-rule); }
 .contact-val { font-size: 1.05rem; }
 .contact-sep { color: var(--ink-3); }
-.contact-form { display: flex; flex-direction: column; gap: 1.7rem; }
+.contact-form {
+  display: flex; flex-direction: column; gap: 1.7rem;
+  background: var(--card); border: 1px solid var(--rule); border-radius: 18px;
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+}
 .field { display: flex; flex-direction: column; gap: 0.5rem; }
 .field input, .field textarea {
   background: none; border: none; border-bottom: 1px solid var(--rule);
