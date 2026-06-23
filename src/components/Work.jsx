@@ -28,7 +28,6 @@ function ProjectCard({ p, n, onOpen }) {
 
       <div className="pcard-body">
         <h3 className="pcard-title">{p.title}</h3>
-        <p className="pcard-blurb muted">{p.blurb}</p>
         <button type="button" className="pcard-link tlink tlink--accent" onClick={() => onOpen(p)}>
           Read the story <span className="arr">→</span>
         </button>
