@@ -39,7 +39,6 @@ export default function Navbar() {
               className={`nav-link ${active === l.id ? 'nav-link--active' : ''}`}
               onClick={(e) => { e.preventDefault(); go(l.id) }}
             >
-              <span className="nav-idx mono">{String(i + 1).padStart(2, '0')}</span>
               {l.label}
             </a>
           ))}

@@ -47,7 +47,6 @@ export default function Work() {
       <div className="container">
         <div className="chapter">
           <span className="kicker">Selected work</span>
-          <span className="kicker"><span className="idx">04</span> / 06</span>
         </div>
 
         <div className="work-head">

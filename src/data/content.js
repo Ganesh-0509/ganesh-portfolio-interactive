@@ -166,14 +166,6 @@ export const wins = [
     image: asset('win-vit.jpg'),
   },
   {
-    title: 'Special Mention · ASME IMECE India',
-    chip: 'Competition',
-    medal: '⭐',
-    detail: 'Recognized at Brain Bolt — The Engineers’ Sprint in Hyderabad for creative engineering & teamwork.',
-    year: 'Sep 2025',
-    image: asset('win-asme.jpg'),
-  },
-  {
     title: 'Finalist · OpenAI × NxtWave',
     chip: 'Buildathon',
     medal: '🚀',
@@ -185,7 +177,7 @@ export const wins = [
 
 export const socials = [
   { name: 'GitHub', icon: 'github', url: 'https://github.com/Ganesh-0509' },
-  { name: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/ganeshkumar-957t/' },
+  { name: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/ganesh-kumar-957t/' },
   // X / Twitter removed — no handle exists.
   { name: 'Email', icon: 'mail', url: 'mailto:ganesh957kumar@gmail.com' },
 ]
